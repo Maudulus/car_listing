@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'real estate associate adds building', %q{
+feature 'used car salesperson adds car', %q{
   As a car salesperson
   I want to record a newly acquired car
   So that I can list it in my lot
