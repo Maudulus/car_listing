@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Color</th>
+    <th>Year</th>
+    <th>Mileage</th>
+    <th>Description</th>
+    <th>Manufacturer ID</th>
+    <th> </th>
+
+  </tr>
+    <% @cars.each do |car|%>
+  <tr>
+    <td><%= car.color %></td>
+    <td><%= car.year %></td>
+    <td><%= car.mileage %></td>
+    <td><%= car.description %></td>
+    <td><%= car.manufacturer_id %></td>
+    <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+  <% end %>
+</table>

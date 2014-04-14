@@ -4,6 +4,17 @@ class ManufacturersController < ApplicationController
     @manufacturer = Manufacturer.new
   end
 
+  def index
+    @manufacturers = Manufacturer.all
+  end
+
+  def destroy
+    @manufacturer = Manufacturer.find(params[:id])
+    @manufacturer.destroy
+
+    redirect_to manufacturers_path
+  end
+
   def create
     @manufacturer = Manufacturer.create(manufacturer_params)
     if @manufacturer.save
@@ -15,6 +26,10 @@ class ManufacturersController < ApplicationController
   end
 
   private
+
+  def set_manufacturer
+      @manufacturer = Manufacturer.find(params[:id])
+  end
 
   def manufacturer_params
     params.require(:manufacturer).permit(:name, :country)

@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Country</th>
+    <th>Manufacturer ID</th>
+    <th> </th>
+
+  </tr>
+    <% @manufacturers.each do |manufacturer|%>
+  <tr>
+    <td><%= manufacturer.name %></td>
+    <td><%= manufacturer.country %></td>
+    <td><%= manufacturer.id %></td>
+    <td><%= link_to 'Destroy', manufacturer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+  <% end %>
+</table>
