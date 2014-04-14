@@ -1,4 +1,4 @@
-require 'spec-helper'
+require 'spec_helper'
 
 feature 'real estate associate adds building', %q{
   As a car salesperson
@@ -12,7 +12,6 @@ feature 'real estate associate adds building', %q{
 
     visit new_car_path
     car_new_helper(car)
-
     click_on 'Add Car'
 
     expect(Car.count).to eq(count+1)
@@ -21,7 +20,17 @@ feature 'real estate associate adds building', %q{
   end
 
   scenario 'salesperson adds a car with invalid attributes' do
+    car = FactoryGirl.build(:car)
+    count = Car.count
 
+    visit new_car_path
+    car_new_helper(car)
+    fill_in color, with: ""
+    click_on 'Add Car'
+
+    expect(Car.count).to eq(count)
+    expect(page).to have_content("Car Not Added")
+    expect(current_path).to eq new_car_path
   end
 
 end
