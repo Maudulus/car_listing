@@ -11,7 +11,7 @@ feature 'real estate associate adds building', %q{
     count = Car.count
 
     visit new_car_path
-    car_new_helper(car)
+    new_car_helper(car)
     click_on 'Add Car'
 
     expect(Car.count).to eq(count+1)
@@ -24,13 +24,13 @@ feature 'real estate associate adds building', %q{
     count = Car.count
 
     visit new_car_path
-    car_new_helper(car)
-    fill_in color, with: ""
+    new_car_helper(car)
+    fill_in "Color", with: ""
     click_on 'Add Car'
 
     expect(Car.count).to eq(count)
     expect(page).to have_content("Car Not Added")
-    expect(current_path).to eq new_car_path
+    expect(current_path).to eq cars_path
   end
 
 end
