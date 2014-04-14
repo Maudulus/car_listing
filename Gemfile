@@ -47,6 +47,8 @@ gem 'simple_form'
 
 gem 'foundation-rails'
 
+gem 'country_select'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

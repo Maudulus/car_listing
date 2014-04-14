@@ -7,4 +7,7 @@ module FormHelper
     fill_in 'Description', with: valid_attrs.description
   end
 
+  def new_manufacturer_helper(valid_attrs)
+    fill_in 'Name', with: valid_attrs.name
+  end
 end
